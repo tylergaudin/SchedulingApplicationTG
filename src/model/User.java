@@ -1,15 +1,27 @@
 package model;
 
-public abstract class User {
+import java.time.ZoneId;
+
+public class User {
 
     private int id;
     private String userName;
     private String password;
+    private ZoneId timeZone;
 
-    public User(int id, String userName, String password){
+    public ZoneId getTimeZone() {
+        return timeZone;
+    }
+
+    public void setTimeZone(ZoneId timeZone) {
+        this.timeZone = timeZone;
+    }
+
+    public User(int id, String userName, String password, ZoneId timeZone){
         this.id = id;
         this.userName = userName;
         this.password = password;
+        this.timeZone = timeZone;
     }
 
     public int getId() {
