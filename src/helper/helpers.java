@@ -1,6 +1,8 @@
 package helper;
 
 import javafx.scene.control.Alert;
+import model.Customer;
+import model.Directory;
 
 public class helpers {
 
@@ -11,5 +13,13 @@ public class helpers {
         alert1.showAndWait();
     }
 
-    public static String lookupID()
+    public static String lookupID(String custName)
+    {
+        for (Customer customer : Directory.getAllCustomers())
+        {
+            if (customer.custName == custName.custName){
+                return customer.custId;
+            }
+        }
+    }
 }
