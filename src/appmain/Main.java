@@ -1,6 +1,7 @@
 package appmain;
 
 import helper.JDBC;
+import helper.UsersQuery;
 import helper.helpers;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -8,6 +9,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
+
+import java.sql.SQLException;
 
 public class Main extends Application {
 
@@ -20,14 +23,14 @@ public class Main extends Application {
     }
 
 
-    public static void main(String[] args) {
-        //JDBC.openConnection();
+    public static void main(String[] args) throws SQLException {
+        JDBC.openConnection();
 
-        helpers.alert("Don't do it!");
-
-        //JDBC.closeConnection();
-
+        //helpers.alert("Don't do it!");
+        UsersQuery.select();
 
         launch(args);
+
+        JDBC.closeConnection();
     }
 }

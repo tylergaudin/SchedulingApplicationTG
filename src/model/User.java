@@ -9,14 +9,6 @@ public class User {
     private String password;
     private ZoneId timeZone;
 
-    public ZoneId getTimeZone() {
-        return timeZone;
-    }
-
-    public void setTimeZone(ZoneId timeZone) {
-        this.timeZone = timeZone;
-    }
-
     public User(int id, String userName, String password, ZoneId timeZone){
         this.id = id;
         this.userName = userName;
@@ -46,5 +38,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public ZoneId getTimeZone() {
+        return timeZone;
+    }
+
+    public void setTimeZone(ZoneId timeZone) {
+        this.timeZone = timeZone;
     }
 }

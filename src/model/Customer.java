@@ -2,6 +2,8 @@ package model;
 
 import javafx.collections.ObservableList;
 
+import java.time.ZoneId;
+
 public class Customer extends User{
 
     private ObservableList associatedAppointments;
@@ -21,10 +23,11 @@ public class Customer extends User{
     }
 
     public Customer(int id, String userName, String password,
+                    ZoneId timeZone,
                     ObservableList associatedAppointments,
                     String name, String street, String state,
                     String country, int postalCode, String phoneNumber) {
-        super(id, userName, password);
+        super(id, userName, password, timeZone);
         this.name = name;
         this.street = street;
         this.state = state;
