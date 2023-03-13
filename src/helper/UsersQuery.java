@@ -33,7 +33,8 @@ public abstract class UsersQuery {
         return rowsAffected;
     }
 
-    public static void select() throws SQLException {
+    public static void select() throws SQLException
+    {
         String sql = "Select * FROM USERS";
         PreparedStatement ps = JDBC.connection.prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
@@ -41,6 +42,20 @@ public abstract class UsersQuery {
             int userId = rs.getInt("User_ID");
             String userName = rs.getString("User_Name");
             System.out.print(userId + " | " + userName + "\n");
+        }
+    }
+
+    public static void select(int userId) throws SQLException
+    {
+        String sql = "Select * FROM USERS WHERE User_ID = ?";
+        PreparedStatement ps = JDBC.connection.prepareStatement(sql);
+        ps.setInt(1,userId);
+        ResultSet rs = ps.executeQuery();
+        while(rs.next()){
+            int userid = rs.getInt("User_ID");
+            String userName = rs.getString("User_Name");
+            String password = rs.getString("Password");
+            System.out.print(userId + " | " + userName + " | " + password + "\n");
         }
     }
 }

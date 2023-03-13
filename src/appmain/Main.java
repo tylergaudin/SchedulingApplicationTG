@@ -27,7 +27,7 @@ public class Main extends Application {
         JDBC.openConnection();
 
         //helpers.alert("Don't do it!");
-        UsersQuery.select();
+        UsersQuery.select(2);
 
         launch(args);
 
